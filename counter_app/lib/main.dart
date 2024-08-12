@@ -1,7 +1,7 @@
+import 'package:counter_app/counter_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/second_screen.dart';
 
-void main(List<String> args) {
+void main() {
   runApp(const MyApp());
 }
 
@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SecondScreen(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: CounterView(),
     );
   }
 }
