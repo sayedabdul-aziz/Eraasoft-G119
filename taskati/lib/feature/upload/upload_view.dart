@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:taskati/core/function/dialogs.dart';
 import 'package:taskati/core/function/navigation.dart';
+import 'package:taskati/core/services/local_storage.dart';
 import 'package:taskati/core/utils/colors.dart';
 import 'package:taskati/core/utils/text_style.dart';
 import 'package:taskati/core/widgets/custom_button.dart';
@@ -28,31 +29,22 @@ class _UploadViewState extends State<UploadView> {
           TextButton(
               onPressed: () {
                 if (imagePath != null && name.isNotEmpty) {
-                  var box = Hive.box('userBox');
-                  box.put('image', imagePath);
-                  box.put('name', name);
-                  box.put('isUploaded', true);
+                  AppLocalStorage.cacheData(AppLocalStorage.kIsUploaded, true);
+                  AppLocalStorage.cacheData(AppLocalStorage.kUsername, name);
+                  AppLocalStorage.cacheData(
+                      AppLocalStorage.kUserImage, imagePath);
                   pushReplacement(context, const HomeView());
                 } else if (imagePath != null && name.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    backgroundColor: AppColors.redColor,
-                    content: Text('Name cannot be empty'),
-                  ));
+                  showErrorDialog(context, 'Name cannot be empty');
                 } else if (imagePath == null && name.isNotEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    backgroundColor: AppColors.redColor,
-                    content: Text('Image cannot be empty'),
-                  ));
+                  showErrorDialog(context, 'Image cannot be empty');
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    backgroundColor: AppColors.redColor,
-                    content: Text('Image and Name cannot be empty'),
-                  ));
+                  showErrorDialog(context, 'Image and Name cannot be empty');
                 }
               },
               child: Text(
                 'Done',
-                style: getBodyTextStyle(color: AppColors.primaryColor),
+                style: getBodyTextStyle(context, color: AppColors.primaryColor),
               )),
         ],
       ),

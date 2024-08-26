@@ -1,41 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:taskati/core/utils/colors.dart';
 
-TextStyle getHeadlineTextStyle(
-    {double fontSize = 24,
-    fontWeight = FontWeight.bold,
-    color = AppColors.blackColor}) {
+TextStyle getHeadlineTextStyle(context,
+    {double fontSize = 24, fontWeight = FontWeight.bold, Color? color}) {
   return TextStyle(
     fontFamily: 'Poppins',
     fontSize: fontSize,
     fontWeight: fontWeight,
-    color: color,
+    color: color ?? Theme.of(context).colorScheme.onSurface,
   );
 }
 
 // title
 
-TextStyle getTitleTextStyle(
-    {double fontSize = 18,
-    fontWeight = FontWeight.w600,
-    color = AppColors.blackColor}) {
+TextStyle getTitleTextStyle(context,
+    {double fontSize = 18, fontWeight = FontWeight.w600, Color? color}) {
   return TextStyle(
-    fontFamily: 'Poppins',
     fontSize: fontSize,
     fontWeight: fontWeight,
-    color: color,
+    color: color ?? Theme.of(context).colorScheme.onSurface,
   );
 }
 
-TextStyle getBodyTextStyle(
-    {double fontSize = 16,
-    fontWeight = FontWeight.normal,
-    color = AppColors.blackColor}) {
+TextStyle getBodyTextStyle(context,
+    {double fontSize = 16, fontWeight = FontWeight.normal, Color? color}) {
   return TextStyle(
-    fontFamily: 'Poppins',
     fontSize: fontSize,
     fontWeight: fontWeight,
-    color: color,
+    color: color ?? Theme.of(context).colorScheme.onSurface,
   );
 }
 // small
@@ -45,7 +37,6 @@ TextStyle getSmallTextStyle(
     fontWeight = FontWeight.normal,
     color = AppColors.greyColor}) {
   return TextStyle(
-    fontFamily: 'Poppins',
     fontSize: fontSize,
     fontWeight: fontWeight,
     color: color,
