@@ -7,7 +7,12 @@ class LoginLoadingState extends AuthState {}
 
 class LoginSuccessState extends AuthState {}
 
-class LoginErrorState extends AuthState {
+// REGISTER
+class RegisterLoadingState extends AuthState {}
+
+class RegisterSuccessState extends AuthState {}
+
+class AuthErrorState extends AuthState {
   final String error;
-  LoginErrorState(this.error);
+  AuthErrorState(this.error);
 }

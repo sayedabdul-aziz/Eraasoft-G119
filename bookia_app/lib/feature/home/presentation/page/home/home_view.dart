@@ -1,6 +1,6 @@
 import 'package:bookia_app/core/constants/assets_icons.dart';
 import 'package:bookia_app/feature/home/presentation/widgets/banner_widget.dart';
-import 'package:bookia_app/feature/home/presentation/widgets/popular_widget.dart';
+import 'package:bookia_app/feature/home/presentation/widgets/best_seller_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -10,6 +10,7 @@ class HomeView extends StatefulWidget {
   @override
   State<HomeView> createState() => _HomeViewState();
 }
+// Person()..id = 1;
 
 class _HomeViewState extends State<HomeView> {
   @override
@@ -36,7 +37,7 @@ class _HomeViewState extends State<HomeView> {
       body: const SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           BannerHomeWidget(),
-          PopularBooksWidget(),
+          BestSellerBooksWidget(),
         ]),
       ),
     );

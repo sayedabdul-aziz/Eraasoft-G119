@@ -29,5 +29,4 @@ class User {
         emailVerified: json['email_verified'] as bool?,
         image: json['image'] as String?,
       );
-
 }

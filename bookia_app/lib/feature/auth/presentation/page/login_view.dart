@@ -1,3 +1,4 @@
+import 'package:bookia_app/core/functions/dialogs.dart';
 import 'package:bookia_app/core/functions/navigation.dart';
 import 'package:bookia_app/core/utils/colors.dart';
 import 'package:bookia_app/core/utils/text_styles.dart';
@@ -29,17 +30,18 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthBloc, AuthState>(
-      listener: (context, state) {
-        if (state is LoginSuccessState) {
-          pushReplacement(context, const NavBarWidget());
-        } else if (state is LoginErrorState) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(state.error)));
-        }
-      },
-      builder: (context, state) {
-        return Scaffold(
+    return BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is LoginSuccessState) {
+            pushAndRemoveUntil(context, const NavBarWidget());
+          } else if (state is AuthErrorState) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.error)));
+          } else {
+            showLoadingDialog(context);
+          }
+        },
+        child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -115,20 +117,17 @@ class _LoginViewState extends State<LoginView> {
                                   ],
                                 ),
                                 const Gap(30),
-                                (state is LoginLoadingState)
-                                    ? const CircularProgressIndicator()
-                                    : CustomButton(
-                                        text: 'Login',
-                                        onTap: () {
-                                          if (formKey.currentState!
-                                              .validate()) {
-                                            context.read<AuthBloc>().add(
-                                                LoginEvent(LoginModelParams(
-                                                    email: emailController.text,
-                                                    password: passwordController
-                                                        .text)));
-                                          }
-                                        }),
+                                CustomButton(
+                                    text: 'Login',
+                                    onTap: () {
+                                      if (formKey.currentState!.validate()) {
+                                        context.read<AuthBloc>().add(LoginEvent(
+                                            LoginModelParams(
+                                                email: emailController.text,
+                                                password:
+                                                    passwordController.text)));
+                                      }
+                                    }),
                                 const Gap(34),
                                 Row(
                                   children: [
@@ -170,8 +169,6 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 )
               ],
-            ));
-      },
-    );
+            )));
   }
 }
