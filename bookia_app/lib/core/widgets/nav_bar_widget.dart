@@ -1,4 +1,5 @@
 import 'package:bookia_app/core/utils/colors.dart';
+import 'package:bookia_app/feature/cart/presentation/page/cart_view.dart';
 import 'package:bookia_app/feature/home/presentation/page/home/home_view.dart';
 import 'package:bookia_app/feature/home/presentation/page/wishlist/wishlist_view.dart';
 import 'package:bookia_app/feature/profile/presentation/page/profile_view.dart';
@@ -16,7 +17,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
   List<Widget> pages = [
     const HomeView(),
     const WishlistView(),
-    const WishlistView(),
+    const CartView(),
     const ProfileView()
   ];
   int currentIndex = 0;

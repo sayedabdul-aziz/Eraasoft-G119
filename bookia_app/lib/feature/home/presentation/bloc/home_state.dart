@@ -22,6 +22,7 @@ class GetBestSellersSuccessState extends HomeState {
 class GetWishlistLoadingState extends HomeState {}
 
 class GetWishlistLoadedState extends HomeState {}
+
 class GetWishlistEmptyState extends HomeState {}
 
 class AddToWishlistLoadingState extends HomeState {}
@@ -31,6 +32,26 @@ class AddToWishlistLoadedState extends HomeState {}
 class DeleteFromWishlistLoadingState extends HomeState {}
 
 class DeleteFromWishlistLoadedState extends HomeState {}
+
+// wishlist
+
+class GetCartLoadingState extends HomeState {}
+
+class GetCartLoadedState extends HomeState {}
+
+class GetCartEmptyState extends HomeState {}
+
+class AddToCartLoadingState extends HomeState {}
+
+class AddToCartLoadedState extends HomeState {}
+
+class UpdateCartLoadingState extends HomeState {}
+
+class UpdateCartLoadedState extends HomeState {}
+
+class DeleteFromCartLoadingState extends HomeState {}
+
+class DeleteFromCartLoadedState extends HomeState {}
 
 class HomeErrorState extends HomeState {
   final String error;

@@ -45,13 +45,22 @@ class BookDetailsView extends StatelessWidget {
                 content: Text('Added to wishlist successfully'),
               ),
             );
-          } else if (state is AddToWishlistLoadingState) {
+          } else if (state is AddToCartLoadedState) {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                backgroundColor: AppColors.primaryColor,
+                content: Text('Added to cart successfully'),
+              ),
+            );
+          } else if (state is AddToWishlistLoadingState ||
+              state is AddToCartLoadingState) {
             showLoadingDialog(context);
           }
         },
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(22, 22, 22, 15),
+            padding: const EdgeInsets.fromLTRB(22, 22, 22, 20),
             child: Column(
               children: [
                 Expanded(
@@ -110,7 +119,11 @@ class BookDetailsView extends StatelessWidget {
                         width: 250,
                         color: AppColors.textColor,
                         text: 'Add to cart',
-                        onTap: () {}),
+                        onTap: () {
+                          context
+                              .read<HomeBloc>()
+                              .add(AddToCartEvent(productId: product?.id ?? 0));
+                        }),
                   ],
                 ),
               ],

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774648126529",
+    "project_id": "se7ety-119",
+    "storage_bucket": "se7ety-119.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774648126529:android:afb84e9959808fce977ac0",
+        "android_client_info": {
+          "package_name": "com.eraasoft.se7ety199"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw2bha_7yGi7xQQe5GXtSUsBqAa9n6_5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

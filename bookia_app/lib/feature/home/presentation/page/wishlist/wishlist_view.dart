@@ -28,7 +28,10 @@ class _WishlistViewState extends State<WishlistView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wishlist'),
+        title: Text(
+          'Wishlist',
+          style: getTitleTextStyle(context),
+        ),
       ),
       body: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {
