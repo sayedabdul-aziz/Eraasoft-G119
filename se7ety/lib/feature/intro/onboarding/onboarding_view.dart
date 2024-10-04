@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/functions/navigation.dart';
+import 'package:se7ety/core/services/local_storage/local_storage.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
 import 'package:se7ety/core/widgets/custom_button.dart';
@@ -28,6 +29,9 @@ class _OnboardingViewState extends State<OnboardingView> {
           if (currentPage != pages.length - 1)
             TextButton(
               onPressed: () {
+                AppLocalStorage.cacheData(
+                    key: AppLocalStorage.onboarding, value: true);
+
                 pushReplacement(context, const WelcomeView());
               },
               child: Text(
@@ -99,6 +103,8 @@ class _OnboardingViewState extends State<OnboardingView> {
                       height: 45,
                       text: 'هيا بنا',
                       onPressed: () {
+                        AppLocalStorage.cacheData(
+                            key: AppLocalStorage.onboarding, value: true);
                         pushReplacement(context, const WelcomeView());
                       },
                       width: 100)

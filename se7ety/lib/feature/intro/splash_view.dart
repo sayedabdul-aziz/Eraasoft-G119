@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:se7ety/core/functions/navigation.dart';
+import 'package:se7ety/core/services/local_storage/local_storage.dart';
 import 'package:se7ety/feature/intro/onboarding/onboarding_view.dart';
+import 'package:se7ety/feature/intro/welcome_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -17,7 +19,14 @@ class _SplashViewState extends State<SplashView> {
       // Todo: check this user is a doctor or patient
       // todo: using firebase firestore
       // todo: using cacheing
-      pushReplacement(context, const OnboardingView());
+      bool isOnboardingShown =
+          AppLocalStorage.getCachedData(key: AppLocalStorage.onboarding) ??
+              false;
+      if (isOnboardingShown) {
+        pushReplacement(context, const WelcomeView());
+      } else {
+        pushReplacement(context, const OnboardingView());
+      }
     });
     super.initState();
   }

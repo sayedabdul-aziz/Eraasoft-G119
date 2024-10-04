@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:se7ety/core/enums/user_type_enum.dart';
+import 'package:se7ety/core/functions/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/feature/auth/presentation/page/login_view.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -76,11 +79,8 @@ class WelcomeView extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const LoginView(index: 0),
-                          //     ));
+                          push(context,
+                              const LoginView(userType: UserType.doctor));
                         },
                         child: Container(
                             height: 70,
@@ -99,11 +99,8 @@ class WelcomeView extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const LoginView(index: 1),
-                          //     ));
+                          push(context,
+                              const LoginView(userType: UserType.patient));
                         },
                         child: Container(
                             height: 70,
