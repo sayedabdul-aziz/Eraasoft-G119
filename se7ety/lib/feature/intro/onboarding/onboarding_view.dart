@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:se7ety/core/functions/navigation.dart';
 import 'package:se7ety/core/services/local_storage/local_storage.dart';
 import 'package:se7ety/core/utils/colors.dart';
-import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/core/widgets/custom_button.dart';
 import 'package:se7ety/feature/intro/onboarding/onboarding_model.dart';
 import 'package:se7ety/feature/intro/welcome_view.dart';
@@ -36,7 +36,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               },
               child: Text(
                 'تخطي',
-                style: getbodyStyle(color: AppColors.color1),
+                style: getBodyStyle(color: AppColors.color1),
               ),
             ),
         ],
@@ -71,7 +71,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 Text(
                   pages[index].body,
                   textAlign: TextAlign.center,
-                  style: getbodyStyle(),
+                  style: getBodyStyle(),
                 ),
                 const Spacer(
                   flex: 3,

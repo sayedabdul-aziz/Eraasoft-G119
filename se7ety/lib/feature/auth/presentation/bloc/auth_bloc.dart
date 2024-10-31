@@ -49,6 +49,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       );
       User? user = credential.user;
       user?.updateDisplayName(event.name);
+      user?.updatePhotoURL(event.userType.name);
       // store into fireStore
       if (event.userType == UserType.doctor) {
         FirebaseFirestore.instance.collection("doctors").doc(user?.uid).set({

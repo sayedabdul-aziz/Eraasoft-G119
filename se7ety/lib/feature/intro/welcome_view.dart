@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:se7ety/core/enums/user_type_enum.dart';
 import 'package:se7ety/core/functions/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
-import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/feature/auth/presentation/page/login_view.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -44,7 +44,7 @@ class WelcomeView extends StatelessWidget {
                 const Gap(15),
                 Text(
                   'سجل واحجز عند دكتورك وانت فالبيت',
-                  style: getbodyStyle(),
+                  style: getBodyStyle(),
                 ),
               ],
             ),
@@ -70,7 +70,7 @@ class WelcomeView extends StatelessWidget {
                 children: [
                   Text(
                     'سجل دلوقتي كــ',
-                    style: getbodyStyle(fontSize: 18, color: AppColors.white),
+                    style: getBodyStyle(fontSize: 18, color: AppColors.white),
                   ),
                   const SizedBox(
                     height: 40,
@@ -85,7 +85,7 @@ class WelcomeView extends StatelessWidget {
                         child: Container(
                             height: 70,
                             decoration: BoxDecoration(
-                                color: AppColors.scaffoldBG.withOpacity(.7),
+                                color: AppColors.accentColor.withOpacity(.7),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                               child: Text(
@@ -105,7 +105,7 @@ class WelcomeView extends StatelessWidget {
                         child: Container(
                             height: 70,
                             decoration: BoxDecoration(
-                                color: AppColors.scaffoldBG.withOpacity(.7),
+                                color: AppColors.accentColor.withOpacity(.7),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                               child: Text(

@@ -13,7 +13,7 @@ TextStyle getTitleStyle(
       fontFamily: GoogleFonts.cairo().fontFamily,
     );
 
-TextStyle getbodyStyle(
+TextStyle getBodyStyle(
         {Color? color,
         double? fontSize = 14,
         FontWeight? fontWeight = FontWeight.w400}) =>
@@ -23,7 +23,7 @@ TextStyle getbodyStyle(
         fontWeight: fontWeight,
         fontFamily: GoogleFonts.cairo().fontFamily);
 
-TextStyle getsmallStyle(
+TextStyle getSmallStyle(
         {Color? color,
         double? fontSize = 12,
         FontWeight? fontWeight = FontWeight.w500}) =>

@@ -12,7 +12,7 @@ class DoctorModel {
   String? closeHour;
   String? bio;
   String? image;
-  String? rating;
+  int? rating;
   DoctorModel({
     this.uid,
     this.name,

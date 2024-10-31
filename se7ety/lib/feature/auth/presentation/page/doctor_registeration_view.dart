@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:se7ety/core/functions/dialogs.dart';
 import 'package:se7ety/core/utils/colors.dart';
-import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/feature/auth/data/doctor_model.dart';
 import 'package:se7ety/feature/auth/data/specialization.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_bloc.dart';
@@ -137,7 +137,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                           children: [
                             Text(
                               'التخصص',
-                              style: getbodyStyle(color: AppColors.black),
+                              style: getBodyStyle(color: AppColors.black),
                             )
                           ],
                         ),
@@ -147,7 +147,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 5),
                         decoration: BoxDecoration(
-                            color: AppColors.scaffoldBG,
+                            color: AppColors.accentColor,
                             borderRadius: BorderRadius.circular(20)),
                         child: DropdownButton(
                           isExpanded: true,
@@ -173,7 +173,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                           children: [
                             Text(
                               'نبذة تعريفية',
-                              style: getbodyStyle(color: AppColors.black),
+                              style: getBodyStyle(color: AppColors.black),
                             )
                           ],
                         ),
@@ -204,7 +204,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                           children: [
                             Text(
                               'عنوان العيادة',
-                              style: getbodyStyle(color: AppColors.black),
+                              style: getBodyStyle(color: AppColors.black),
                             )
                           ],
                         ),
@@ -233,7 +233,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                                 children: [
                                   Text(
                                     'ساعات العمل من',
-                                    style: getbodyStyle(color: AppColors.black),
+                                    style: getBodyStyle(color: AppColors.black),
                                   )
                                 ],
                               ),
@@ -246,7 +246,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                                 children: [
                                   Text(
                                     'الي',
-                                    style: getbodyStyle(color: AppColors.black),
+                                    style: getBodyStyle(color: AppColors.black),
                                   )
                                 ],
                               ),
@@ -302,7 +302,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                           children: [
                             Text(
                               'رقم الهاتف 1',
-                              style: getbodyStyle(color: AppColors.black),
+                              style: getBodyStyle(color: AppColors.black),
                             )
                           ],
                         ),
@@ -328,7 +328,7 @@ class _DoctorRegistrationViewState extends State<DoctorRegistrationView> {
                           children: [
                             Text(
                               'رقم الهاتف 2 (اختياري)',
-                              style: getbodyStyle(color: AppColors.black),
+                              style: getBodyStyle(color: AppColors.black),
                             )
                           ],
                         ),

@@ -6,12 +6,13 @@ import 'package:se7ety/core/functions/dialogs.dart';
 import 'package:se7ety/core/functions/email_validate.dart';
 import 'package:se7ety/core/functions/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
-import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/core/widgets/custom_button.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_event.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_state.dart';
 import 'package:se7ety/feature/auth/presentation/page/signup_view.dart';
+import 'package:se7ety/feature/patient/nav_bar.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key, required this.userType});
@@ -37,7 +38,7 @@ class _LoginViewState extends State<LoginView> {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is LoginSuccessState) {
-          Navigator.pop(context);
+          pushAndRemoveUntil(context, const PatientNavBarWidget());
         } else if (state is AuthErrorState) {
           Navigator.pop(context);
           showErrorDialog(context, state.error);
@@ -116,7 +117,7 @@ class _LoginViewState extends State<LoginView> {
                       padding: const EdgeInsets.only(top: 5, right: 10),
                       child: Text(
                         'نسيت كلمة السر ؟',
-                        style: getsmallStyle(),
+                        style: getSmallStyle(),
                       ),
                     ),
                     const Gap(20),
@@ -138,7 +139,7 @@ class _LoginViewState extends State<LoginView> {
                         children: [
                           Text(
                             'ليس لدي حساب ؟',
-                            style: getbodyStyle(color: AppColors.black),
+                            style: getBodyStyle(color: AppColors.black),
                           ),
                           TextButton(
                               onPressed: () {
@@ -147,7 +148,7 @@ class _LoginViewState extends State<LoginView> {
                               },
                               child: Text(
                                 'سجل الان',
-                                style: getbodyStyle(color: AppColors.color1),
+                                style: getBodyStyle(color: AppColors.color1),
                               ))
                         ],
                       ),

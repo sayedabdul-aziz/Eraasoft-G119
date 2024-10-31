@@ -6,7 +6,7 @@ import 'package:se7ety/core/functions/dialogs.dart';
 import 'package:se7ety/core/functions/email_validate.dart';
 import 'package:se7ety/core/functions/navigation.dart';
 import 'package:se7ety/core/utils/colors.dart';
-import 'package:se7ety/core/utils/text_styles.dart';
+import 'package:se7ety/core/utils/text_style.dart';
 import 'package:se7ety/core/widgets/custom_button.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:se7ety/feature/auth/presentation/bloc/auth_event.dart';
@@ -78,7 +78,7 @@ class _RegisterViewState extends State<RegisterView> {
                       style: TextStyle(color: AppColors.black),
                       decoration: InputDecoration(
                         hintText: 'الاسم',
-                        hintStyle: getbodyStyle(color: Colors.grey),
+                        hintStyle: getBodyStyle(color: Colors.grey),
                         prefixIcon: const Icon(Icons.person),
                       ),
                       validator: (value) {
@@ -154,7 +154,7 @@ class _RegisterViewState extends State<RegisterView> {
                         children: [
                           Text(
                             'لدي حساب ؟',
-                            style: getbodyStyle(color: AppColors.black),
+                            style: getBodyStyle(color: AppColors.black),
                           ),
                           TextButton(
                               onPressed: () {
@@ -163,7 +163,7 @@ class _RegisterViewState extends State<RegisterView> {
                               },
                               child: Text(
                                 'سجل دخول',
-                                style: getbodyStyle(color: AppColors.color1),
+                                style: getBodyStyle(color: AppColors.color1),
                               ))
                         ],
                       ),

@@ -3,6 +3,7 @@ import 'package:se7ety/core/functions/navigation.dart';
 import 'package:se7ety/core/services/local_storage/local_storage.dart';
 import 'package:se7ety/feature/intro/onboarding/onboarding_view.dart';
 import 'package:se7ety/feature/intro/welcome_view.dart';
+import 'package:se7ety/feature/patient/nav_bar.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,13 +20,19 @@ class _SplashViewState extends State<SplashView> {
       // Todo: check this user is a doctor or patient
       // todo: using firebase firestore
       // todo: using cacheing
+      String? token = AppLocalStorage.getCachedData(key: AppLocalStorage.token);
       bool isOnboardingShown =
           AppLocalStorage.getCachedData(key: AppLocalStorage.onboarding) ??
               false;
-      if (isOnboardingShown) {
-        pushReplacement(context, const WelcomeView());
+
+      if (token != null) {
+        pushAndRemoveUntil(context, PatientNavBarWidget());
       } else {
-        pushReplacement(context, const OnboardingView());
+        if (isOnboardingShown) {
+          pushReplacement(context, const WelcomeView());
+        } else {
+          pushReplacement(context, const OnboardingView());
+        }
       }
     });
     super.initState();
